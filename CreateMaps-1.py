@@ -1,6 +1,15 @@
 """
-Create maps with data below this article:
+Create maps automatically with QGIS and PyQgis!
+Using APIs (OSM, Wikipedia, Wikidata) and geo-processing (intersection).
+
+Checked with QGIS 3.28.13
+Checked with QGIS 3.34.11
+
+Just change the path in "monCheminDeBase".
+Download the data examples below this article, and unzip them:
 https://hg-map.fr/tutos/73-qgis-et-python
+
+Then just run this code!
 
 Other PyQgis tips here:
 https://hg-map.fr/astuces/84-pyqgis
