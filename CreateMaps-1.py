@@ -1,3 +1,13 @@
+"""
+Create maps with data below this article:
+https://hg-map.fr/tutos/73-qgis-et-python
+
+Other PyQgis tips here:
+https://hg-map.fr/astuces/84-pyqgis
+
+Other standalone PyQgis tips here:
+https://hg-map.fr/astuces/85-pyqgis
+"""
 
 from PyQt5 import *
 
