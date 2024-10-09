@@ -1,4 +1,4 @@
-Create maps automatically with QGIS and PyQgis!
+Use the script CreateMaps-1.py to create maps automatically with QGIS and PyQgis!
 <br>
 Using APIs (OSM, Wikipedia, Wikidata) and geo-processing (intersection).
 
