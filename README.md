@@ -10,6 +10,8 @@ Example of map produced:<br>https://hg-map.fr/images/cours/python/2024-10-06-Gra
 Just change the path in "monCheminDeBase".<br>
 Download the data examples below this article, and unzip them:<br>
 https://hg-map.fr/tutos/73-qgis-et-python
+
+Check/change the names and directories used by layers below "Path of layers".
 <br>Then just run this code!
 <br>
 
