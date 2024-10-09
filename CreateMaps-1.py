@@ -12,6 +12,8 @@ Just change the path in "monCheminDeBase".
 Download the data examples below this article, and unzip them:
 https://hg-map.fr/tutos/73-qgis-et-python
 
+Check/change the names and directories used by layers below "Path of layers".
+
 Then just run this code!
 
 Other PyQgis tips here:
