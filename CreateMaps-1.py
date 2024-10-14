@@ -25,6 +25,10 @@ https://hg-map.fr/astuces/85-pyqgis
 
 from PyQt5 import *
 
+# In some cases
+# from PyQt5.QtCore import *
+
+
 import datetime
 import xml.etree.ElementTree
 import time
