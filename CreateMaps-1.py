@@ -8,7 +8,7 @@ Checked with QGIS 3.34.11
 Example of map produced:
 https://hg-map.fr/images/cours/python/2024-10-06-Grand-Pic-de-la-Meije.png
 
-Just change the path in "monCheminDeBase".
+Just change the path in "myPath".
 Download the data examples below this article, and unzip them:
 https://hg-map.fr/tutos/73-qgis-et-python
 
@@ -42,7 +42,7 @@ import wikipedia
 from wikidata.client import Client
 
 # Main path
-monCheminDeBase = r'C:\\Users\\georg\\Downloads\\'
+myPath = r'C:\\Users\\georg\\Downloads\\'
 
 date = datetime.date.today()
 aujourdhui_en = str(date)
@@ -62,8 +62,8 @@ myMetaFont.setItalic(True)
 url = r'https://j4binv.master-geomatique.org/images/img_site/logos/logo2021-blanc.png'
 response = requests.get(url)
 
-image_originale1 = monCheminDeBase + 'logo_master.png'
-path_nouvelle_image1 = monCheminDeBase + 'logo_master_fond_vert.png'
+image_originale1 = myPath + 'logo_master.png'
+path_nouvelle_image1 = myPath + 'logo_master_fond_vert.png'
 
 # Dowload image
 if response.status_code == 200:
@@ -95,8 +95,8 @@ nouvelle_image1.save(path_nouvelle_image1)
 url = r'https://j4binv.master-geomatique.org/images/2023/03/13/CY-Cergy-Paris-172Blanc.png'
 response = requests.get(url)
 
-image_originale2 = monCheminDeBase + 'logo_cyu.png'
-path_nouvelle_image2 = monCheminDeBase + 'logo_cyu_fond_vert.png'
+image_originale2 = myPath + 'logo_cyu.png'
+path_nouvelle_image2 = myPath + 'logo_cyu_fond_vert.png'
 
 # Dowload image
 if response.status_code == 200:
@@ -144,14 +144,14 @@ time.sleep(1)
 iface.mapCanvas().refresh()
 
 # Directory _cartes
-_cartes = monCheminDeBase + '_cartes'
+_cartes = myPath + '_cartes'
 if os.path.isdir(_cartes) == True:
     shutil.rmtree(_cartes)
 if os.path.isdir(_cartes) == False:
     os.mkdir(_cartes)
 
 # Directory peaks_iris
-_peaks_iris = monCheminDeBase + '_peaks_iris'
+_peaks_iris = myPath + '_peaks_iris'
 if os.path.isdir(_peaks_iris) == True:
     shutil.rmtree(_peaks_iris)
 if os.path.isdir(_peaks_iris) == False:
@@ -164,11 +164,11 @@ urlWithParams = "type=xyz&url=http://tile.openstreetmap.org/{z}/{x}/{y}.png"
 osm = QgsRasterLayer(urlWithParams, "OpenStreetMap", "wms")
 
 # Path of layers
-peaks = QgsVectorLayer(monCheminDeBase + 'peaks_selection/peaks_selection.shp', 'Sommets', 'ogr')
-glaciers = QgsVectorLayer(monCheminDeBase + 'glaciers/glaciers.shp', 'Glaciers', 'ogr')
-eau = QgsVectorLayer(monCheminDeBase + 'eau/eau.shp', 'Fleuves', 'ogr')
-troncons_routes = QgsVectorLayer(monCheminDeBase + 'troncons_routes/troncons_routes.shp', 'Grandes routes', 'ogr')
-iris = QgsVectorLayer(monCheminDeBase + 'iris/iris.shp', 'IRIS', 'ogr')
+peaks = QgsVectorLayer(myPath + 'peaks_selection/peaks_selection.shp', 'Peaks', 'ogr')
+glaciers = QgsVectorLayer(myPath + 'glaciers/glaciers.shp', 'Glaciers', 'ogr')
+eau = QgsVectorLayer(myPath + 'eau/eau.shp', 'Fleuves', 'ogr')
+troncons_routes = QgsVectorLayer(myPath + 'troncons_routes/troncons_routes.shp', 'Grandes routes', 'ogr')
+iris = QgsVectorLayer(myPath + 'iris/iris.shp', 'IRIS', 'ogr')
 
 # Open layers
 project.addMapLayer(peaks)
@@ -550,14 +550,14 @@ for feat in mes_sommets.getFeatures():
     layoutManager = manager.layoutByName(layoutName)
     exporter = QgsLayoutExporter(layoutManager)
     exporter.exportToPdf\
-    (monCheminDeBase + "_cartes/%s-%s.pdf" % (aujourdhui_en, layoutName),QgsLayoutExporter.PdfExportSettings())
+    (myPath + "_cartes/%s-%s.pdf" % (aujourdhui_en, layoutName),QgsLayoutExporter.PdfExportSettings())
 
 # Finish with a beautiful canvas in QGIS, lol
 # We delete here processed layers, because not easy to "really" delete them (with the shape) before the loop, dunno why lol
 project.removeMapLayer(sommet_unique)
 project.removeMapLayer(mes_sommets)
 
-peaks = QgsVectorLayer(monCheminDeBase + 'peaks_selection/peaks_selection.shp', 'Sommets', 'ogr')
+peaks = QgsVectorLayer(myPath + 'peaks_selection/peaks_selection.shp', 'Peaks', 'ogr')
 project.addMapLayer(peaks)
 my_peaks = project.mapLayersByName("Sommets")[0]
 
